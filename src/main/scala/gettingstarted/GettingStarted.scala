@@ -8,12 +8,8 @@ object MyModule{
 
   def curry[A,B,C](f: (A,B) => C):A => (B => C) = a => b => f(a,b)
 
-  //excercise3-4
-  def drop[A](l:List[A], n:Int):List[A]
 
-  //excercise3-5
-  def dropWhile[A](l:List, f:A => Boolean):List[A]
-
+  /*
   def exercise3_1 = {
     val x = List(1,2,3,4,5) match{
       case Cons(x, Cons(2, Cons(4, _))) => x
@@ -23,6 +19,7 @@ object MyModule{
       case _ => 101
     }
   }
+  */
 
   //末尾再帰で書いたフィボナッチ
   def fibonacci(x:Int) = {
@@ -37,10 +34,6 @@ object MyModule{
     msg.format(x, abs(x))
   }
 
-  //exercise3.6
-  //最後尾の要素を除去したリストを返す
-  def init[A](l:List[A]):List[A]
-
   def isSorted[A](as:Array[A], orderd:(A,A) => Boolean) :Boolean = {
     //size, tail はArrayのメソッドでないので暗黙の型変換(implicit convert)が発生する
     def go(array:Array[A]):Boolean = {
@@ -51,22 +44,9 @@ object MyModule{
     go(as)
   }
 
-  //excercise 3-3
-  def setHead[A](as:List[A])(a:A) = {
-    val head :: tail = as
-    a :: tail
-  }
-  
-  //excercise 3-2
-  def tail[A](as:List[A]) = {
-    val head :: tail = as
-    tail
-  }
-
   def uncurry[A,B,C](f:A => B => C): (A,B) => C = (a,b) => f(a)(b)
 
 
   def main(args: Array[String]): Unit = {
-    excercise3_1
   }
 }
